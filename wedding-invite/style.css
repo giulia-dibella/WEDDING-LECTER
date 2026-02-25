@@ -1,0 +1,89 @@
+/* Corpo pagina */
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: #fef7e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenitore principale */
+.container {
+  position: relative;
+  width: 400px; /* più grande */
+  text-align: center;
+}
+
+/* Contenitore busta + sigillo */
+#envelope-container {
+  position: relative;
+  width: 100%;
+  height: 240px; /* più alto */
+}
+
+/* Busta chiusa */
+.envelope {
+  width: 100%;
+  display: block;
+}
+
+/* Sigillo centrato sul flap */
+#seal {
+  position: absolute;
+  top: 65%;      /* spostato più in basso */
+  left: 50%;     
+  transform: translate(-50%, 5%);
+  cursor: pointer;
+  width: 80px;   /* più grande */
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+/* Lettera nascosta inizialmente */
+#letter {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 50px);
+  width: 100%;
+  padding: 30px;
+  background: #fff8e5;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 1s ease;
+  z-index: 1;
+  font-size: 18px; /* più leggibile */
+}
+
+/* Mostra la lettera */
+#letter.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+/* Busta che sparisce */
+#envelope-container.hide {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s ease;
+}
+
+/* Pulsante RSVP */
+#rsvp {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: #c04848;
+  color: #fff;
+}
+#rsvp:hover {
+  background-color: #a03030;
+}
